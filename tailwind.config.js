@@ -9,7 +9,8 @@ module.exports = {
         'yellow-600' : "#ca8a04",
         'yellow-700': "#a16207",
         'yellow-800' : "#a16207",
-        'yellow-100': "#fef9c3" 
+        'yellow-100': "#fef9c3",
+        'color1' : "#f6f0e9"
       }
     },
   },
