@@ -1,0 +1,39 @@
+<!--accueil-->
+
+<div class="rounded-lg  h-[68dvh] py-3">
+
+  <ng-container *ngIf="nav=='menu'" >
+   <app-menu></app-menu>
+  </ng-container>
+
+  <ng-container *ngIf="nav=='foods'" >
+    <app-foods></app-foods>
+  </ng-container>
+
+  <ng-container *ngIf="nav=='drinks'" >
+    <app-drinks></app-drinks>
+  </ng-container>
+
+  <ng-container *ngIf="nav=='desserts'" >
+    <app-desserts></app-desserts>
+  </ng-container>
+
+</div>
+
+<hr>
+<div class="flex justify-between rounded-lg w-[50%] p-4 ml-2">
+  <div (click)="menu()"
+    class="w-[20%] bg-yellow-400 ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-white font-bold text-lg rounded-xl flex justify-center">
+    Menu</div>
+  <div (click)="foods()"
+    class="w-[20%] ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center">
+    Foods</div>
+  <div (click)="drinks()"
+    class="w-[20%] ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center">
+    Drinks</div>
+  <div (click)="desserts()"
+    class="w-[20%] ring-1 bg-white ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center">
+    Desserts</div>
+
+</div>
+

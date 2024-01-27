@@ -1,0 +1,72 @@
+<div class="w-full  pt-2 px-1 rounded-lg">
+
+  <div
+    class="w-[99%] h-12
+             bg-yellow-40 flex justify-between items-center p-2 mx-2 rounded-xl ring-1 ring-yellow-600 shadow-sm shadow-yellow-600">
+    <div class="bg-black h-10 w-10 rounded-full">
+      <img src="" alt="">ded
+    </div>
+
+    <div class="flex justify-between items-center  w-[12%]">
+      <div class="text-yellow-600 text-lg font-semibold">Sarah DunKAN</div>
+      <div class="bg-black h-10 w-10 rounded-full">
+        <img src="" alt="">ded
+      </div>
+    </div>
+  </div>
+
+
+  <div class="h-[100%] mt-1 ">
+    <div class="flex w-full h-[91dvh] justify-between p-2">
+      <!-- Lef side  -->
+
+      <div class="bg-white w-[68%] h-auto ring-1 ring-yellow-400 rounded-lg shadow-sm shadow-yellow-600 mt-2 ">
+        <div class="flex w-[40%]  justify-between p-2 mt-2">
+          <div (click)="accueil()"
+            class="w-[30%] cursor-pointer shadow-md shadow-yellow-600 bg-yellow-600 px-2 py-1 text-white font-bold text-lg rounded-xl flex justify-center">
+            Acceuil</div>
+          <div (click)="commande()"
+            class="w-[30%] cursor-pointer shadow-md shadow-yellow-600 bg-white ring-1 ring-yellow-700 px-2 py-1 text-yellow-800 font-bold text-lg rounded-xl flex justify-center">
+            Commande</div>
+          <div (click)="reservation()"
+            class="w-[30%] cursor-pointer shadow-md shadow-yellow-600 bg-white ring-1 ring-yellow-700 px-2 py-1 text-yellow-800 font-bold text-lg rounded-xl flex justify-center">
+            Reservation</div>
+        </div>
+        <div class="m-2 rounded-lg shadow-sm shadow-yellow-600 bg-white h-[77dvh] ">
+
+          <!-- Accueil -->
+          <ng-container *ngIf="navigation=='accueil'" >
+            <app-accueil></app-accueil>
+          </ng-container>
+
+          <ng-container *ngIf="navigation=='commande'" >
+            <app-commande></app-commande>
+          </ng-container>
+
+          <ng-container *ngIf="navigation=='reservation'" >
+            <app-reservation></app-reservation>
+          </ng-container>
+
+
+        </div>
+      </div>
+
+      <!-- Right side -->
+      <div class="w-[30%] h-[86dvh] rounded-lg ring-1 ring-yellow-400 shadow-sm shadow-yellow-600 p-2 mt-2">
+
+        <!-- ticket accueil -->
+
+        <ng-container *ngIf="navigation=='accueil'">
+          <app-accueilticket></app-accueilticket>
+        </ng-container>
+
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+
+</div>
