@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AccueilComponent {
 
-  nav: string='menu'
+  nav: string='foods'
 
   menu()
   {

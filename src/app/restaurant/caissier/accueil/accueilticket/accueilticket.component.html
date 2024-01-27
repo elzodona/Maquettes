@@ -5,12 +5,9 @@
 </div>
 
 <div class=" flex justify-center">
-  <select name="" id="" class="w-[60%] ring-1 ring-yellow-600 p-1 rounded-lg shadow-lg ">
-    <option value="">Selectionner</option>
-
-    <option value="">A Livrer</option>
-    <option value="">Sur Place</option>
-
+  <select (change)="selectedOption($event)" name="" id="" class="w-[60%] ring-1 ring-yellow-600 p-1 rounded-lg shadow-lg " [value]="actions[1]">
+    <!-- <option value="" disabled selected>Selectionner une option</option> -->
+    <option *ngFor="let action of actions" value="" >{{action}}</option>
   </select>
 
 </div>
@@ -92,7 +89,7 @@
 </div>
 
 <div class="px-4  w-full h-16 flex justify-end">
-  <div>
+  <div class="" [hidden]="hideCostumer">
     <svg class="w-10 h-10 text-yellow-600 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
       fill="currentColor" viewBox="0 0 24 24">
       <path fill-rule="evenodd"
@@ -108,7 +105,7 @@
 <div class=" p-2 h-[9dvh] flex justify-center">
   <div class="rounded-md bg-yellow-600 w-full flex">
     <div class="text-2xl text-white font-bold w-[40%]  flex justify-center items-center">
-      Enregistrer
+      {{button}}
     </div>
     <div class="w-[60%] p-2">
       <div class="w-full h-full bg-white p-1">
