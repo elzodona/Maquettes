@@ -23,17 +23,28 @@
 <hr>
 <div class="flex justify-between rounded-lg w-[50%] p-4 ml-2">
   <div (click)="menu()"
-    class="w-[20%] cursor-pointer bg-yellow-400 ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-white font-bold text-lg rounded-xl flex justify-center">
-    Menu</div>
+    [class.bg-yellow-600]="nav === 'menu'"
+    [class]="{'text-[#F7F7F7]': nav === 'menu'}"
+    class="w-[20%] cursor-pointer ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center">
+    Menu
+  </div>
   <div (click)="foods()"
+    [class.bg-yellow-600]="nav === 'foods'"
+   [class]="{'text-[#F7F7F7]': nav === 'foods'}"
     class="w-[20%] cursor-pointer ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center">
-    Foods</div>
+    Foods
+  </div>
   <div (click)="drinks()"
+    [class.bg-yellow-600]="nav === 'drinks'"
+    [class]="{'text-[#F7F7F7]': nav === 'drinks'}"
     class="w-[20%] cursor-pointer ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center">
-    Drinks</div>
+    Drinks
+  </div>
   <div (click)="desserts()"
+    [class.bg-yellow-600]="nav === 'desserts'"
+    [class]="{'text-[#F7F7F7]': nav === 'desserts'}"
     class="w-[20%] cursor-pointer ring-1 bg-white ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center">
-    Desserts</div>
-
+    Desserts
+  </div>
 </div>
 

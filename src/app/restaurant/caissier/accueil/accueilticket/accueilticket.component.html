@@ -1,95 +1,45 @@
-<!--ticket-->
 
 <div class="p-2 flex justify-center text-2xl font-bold text-yellow-600">
   Ticket
 </div>
 
 <div class=" flex justify-center">
-  <select (change)="selectedOption($event)" name="" id="" class="w-[60%] ring-1 ring-yellow-600 p-1 rounded-lg shadow-lg " [value]="actions[1]">
+  <select (change)="selectedOption($event)" [(ngModel)]="selectedAction" class="w-[60%] ring-1 ring-yellow-600 p-1 focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 rounded-lg shadow-lg " [value]="actions[1]">
     <!-- <option value="" disabled selected>Selectionner une option</option> -->
-    <option *ngFor="let action of actions" value="" >{{action}}</option>
+    <option *ngFor="let action of actions">{{action}}</option>
   </select>
 
 </div>
 
-<div
-  class=" p-2  mt-4 h-[52dvh] ring-1 ring-yellow-400 rounded-lg shadow-sm shadow-yellow-600  overflow-y-scroll overflow-hidden">
-  <div
-    class="bg-color1 my-4 text-md text-gray-700 font-semibold flex justify-between ring-1 ring-yellow-600 rounded-xl p-1">
-    <div class="p-1 flex justify-center items-center">
-      <span>Chocolat</span>
-    </div>
-    <div class="pb-1 ring-1 ring-gray-500">
-      <span class=" px-2 text-2xl font-bold">-</span>
-      <input type="text" class="w-14 h-8">
-      <span class="px-2 text-xl font-bold">+</span>
+<form [formGroup]="commandeForm">
 
-    </div>
-    <div class="flex justify-center items-center">
-      <h2>1000 fcfa</h2>
-      <div class="text-white flex justify-center items-center pb-1 w-6 h-6 mx-4 rounded-full bg-red-600 text-lg ">
-        <span>x</span>
+  <div formArrayName="plats" class="p-2 mt-4 h-[52dvh] ring-1 ring-yellow-400 rounded-lg shadow-sm shadow-yellow-600 overflow-y-scroll overflow-hidden">
+    <div *ngFor="let plat of plats.controls; let i = index" [formGroupName]="i"
+      class="bg-color1 my-4 text-md text-gray-700 font-semibold flex justify-between ring-1 ring-yellow-600 rounded-xl p-1">
+      <div class="p-1 ml-1 w-20">
+        <span>{{plat.value.nom}}</span>
       </div>
+
+      <div class="p-1 ring-1 ring-gray-500">
+        <span class="cursor-pointer px-2 text-2xl font-bold" (click)="decreaseValue(i)">-</span>
+        <input type="text" class="w-10 text-center h-8" formControlName="quantite">
+        <span class="cursor-pointer px-2 text-xl font-bold" (click)="increaseValue(i)">+</span>
+      </div>
+
+      <div class="flex justify-center items-center">
+        <h2>{{plat.value.prix}} Fcfa</h2>
+        <div class="text-white flex justify-center items-center pb-1 w-6 h-6 mx-4 rounded-full bg-red-600 text-lg">
+          <span class="cursor-pointer" (click)="supprimerPlat(i)">x</span>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <div class="my-4 text-md text-gray-700 font-semibold flex justify-between ring-1 ring-yellow-600 rounded-xl p-1">
-    <div class="p-1 flex justify-center items-center">
-      <span>Chocolat</span>
-    </div>
-    <div class="pb-1 ring-1 ring-gray-500">
-      <span class=" px-2 text-2xl font-bold">-</span>
-      <input type="text" class="w-14 h-8">
-      <span class="px-2 text-xl font-bold">+</span>
-
-    </div>
-    <div class="flex justify-center items-center">
-      <h2>1000 fcfa</h2>
-      <div class="text-white flex justify-center items-center pb-1 w-6 h-6 mx-4 rounded-full bg-red-600 text-lg ">
-        <span>x</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="my-4 text-md text-gray-700 font-semibold flex justify-between ring-1 ring-yellow-600 rounded-xl p-1">
-    <div class="p-1 flex justify-center items-center">
-      <span>Chocolat</span>
-    </div>
-    <div class="pb-1 ring-1 ring-gray-500">
-      <span class=" px-2 text-2xl font-bold">-</span>
-      <input type="text" class="w-14 h-8">
-      <span class="px-2 text-xl font-bold">+</span>
-
-    </div>
-    <div class="flex justify-center items-center">
-      <h2>1000 fcfa</h2>
-      <div class="text-white flex justify-center items-center pb-1 w-6 h-6 mx-4 rounded-full bg-red-600 text-lg ">
-        <span>x</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="my-4 text-md text-gray-700 font-semibold flex justify-between ring-1 ring-yellow-600 rounded-xl p-1">
-    <div class="p-1 flex justify-center items-center">
-      <span>Chocolat</span>
-    </div>
-    <div class="pb-1 ring-1 ring-gray-500">
-      <span class=" px-2 text-2xl font-bold">-</span>
-      <input type="text" class="w-14 h-8">
-      <span class="px-2 text-xl font-bold">+</span>
-
-    </div>
-    <div class="flex justify-center items-center">
-      <h2>1000 fcfa</h2>
-      <div class="text-white flex justify-center items-center pb-1 w-6 h-6 mx-4 rounded-full bg-red-600 text-lg ">
-        <span>x</span>
-      </div>
-    </div>
-  </div>
-</div>
+</form>
 
 <div class="px-4  w-full h-16 flex justify-end">
-  <div class="" [hidden]="hideCostumer">
+  <div (click)="client()" class="" [hidden]="hideCostumer">
     <svg class="w-10 h-10 text-yellow-600 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
       fill="currentColor" viewBox="0 0 24 24">
       <path fill-rule="evenodd"
@@ -102,16 +52,89 @@
   </div>
 </div>
 
-<div class=" p-2 h-[9dvh] flex justify-center">
+<div class="p-2 h-[9dvh] flex justify-center">
   <div class="rounded-md bg-yellow-600 w-full flex">
     <div class="text-2xl text-white font-bold w-[40%]  flex justify-center items-center">
       {{button}}
     </div>
-    <div class="w-[60%] p-2">
+    <div class="w-[50%] p-2">
       <div class="w-full h-full bg-white p-1">
-        <input type="text" class="w-44 h-full">
+        <input type="text" disabled class="w-32 h-full border-none text-xl text-center" [(ngModel)]="total">
         <span class="text-lg text-gray-600 mx-2 font-bold ">Fcfa</span>
       </div>
     </div>
   </div>
+</div>
+
+<div id="myModal" style="margin-top: 10em; margin-left: 30em; display: none;"
+  class="overflow-y-auto overflow-x-hidden fixed top-10 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+
+  <div class="w-[600px] m-2 h-[420px] flex flex-col gap-4 bg-white rounded-[20px] border-2 border-yellow-600">
+
+    <div class="flex gap-44 ml-48">
+      <div class="w-[200px] mt-2 flex h-12 text-yellow-600 text-[25px] font-normal font-['Inter']">
+        Informations client
+      </div>
+      <div (click)="closeModal()" class="cursor-pointer w-[10px] h-[10px] text-red-600 text-[20px] font-normal font-['Inter']">
+        X
+      </div>
+    </div>
+
+    <div class="ml-16 flex flex-col gap-4">
+
+      <div class="flex flex-row gap-16">
+        <div class="flex flex-col gap-2">
+          <label class="text-yellow-600 font-normal font-['Inter']">Prénom & Nom</label>
+          <input
+            class="focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 bg-white rounded-[10px] border-2 border-yellow-600"
+            placeholder="saisir le nom complet" type="text" id="input1" name="input1">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-yellow-600 font-normal font-['Inter']">Téléphone</label>
+          <input
+            class="focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 bg-white rounded-[10px] border-2 border-yellow-600"
+            placeholder="saisir le numéro" type="text" id="input1" name="input1">
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-16">
+        <div class="flex flex-col gap-2">
+          <label class="text-yellow-600 font-normal font-['Inter']">Adresse</label>
+          <input
+            class="focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 bg-white rounded-[10px] border-2 border-yellow-600"
+            placeholder="saisir l’adresse" type="text" id="input1" name="input1">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-yellow-600 font-normal font-['Inter']">Date de livraison</label>
+          <input
+            class="w-52 focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 bg-white rounded-[10px] border-2 border-yellow-600"
+            type="date" id="input1" name="input1">
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-16">
+        <div class="flex flex-col gap-2">
+          <label class="text-yellow-600 font-normal font-['Inter']">Heure de livraison</label>
+          <input
+            class="w-52 focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 bg-white rounded-[10px] border-2 border-yellow-600"
+            type="time" id="input1" name="input1">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-yellow-600 font-normal font-['Inter']">Livreurs Disponibles</label>
+          <input
+            class="focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 bg-white rounded-[10px] border-2 border-yellow-600"
+            placeholder="choisir un livreur" type="text" id="input1" name="input1">
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-left: auto; margin-right: 10px;"
+      class="cursor-pointer w-[140px] mt-4 h-[40px] text-center bg-yellow-600 rounded-[10px] border-2 border-yellow-400">
+      <div class="w-[124px] h-[35px] text-white text-[25px] font-normal font-['Inter']">
+        Ajouter
+      </div>
+    </div>
+  </div>
+
 </div>

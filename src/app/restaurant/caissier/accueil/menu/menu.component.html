@@ -1,1 +1,30 @@
-<p>menu works!</p>
+
+<div class="h-[66dvh] rounded-lg flex flex-wrap overflow-y-auto mx-2">
+
+  <div class="ml-4 flex flex-wrap gap-14 overflow-y-auto mx-2 px-12">
+
+    <div *ngFor="let item of menu" class="w-1/4 h-52 m-2">
+      <div class="flex">
+        <div *ngIf="item.drink" class="ring-2 z-10 mt-8 ring-yellow-600 w-56 h-16 rounded-full">
+          <img class="w-[100%] h-[100%] rounded-full" [src]="item.drink" alt="">
+        </div>
+        <div class="ring-2 ring-yellow-600 w-96 h-28 rounded-full">
+          <img class="w-[100%] h-[100%] rounded-full" [src]="item.plat" alt="">
+        </div>
+        <div *ngIf="item.dessert" class="ring-2 z-10 mt-8 ring-yellow-600 w-56 h-16 rounded-full">
+          <img class="w-[100%] h-[100%] rounded-full" [src]="item.dessert" alt="">
+        </div>
+      </div>
+
+      <div class="h-10 m-2 mt-8 flex justify-center flex-col items-center">
+        <div class="flex gap-4">
+          <h3 class="text-lg text-yellow-600 font-bold">{{item.name}}</h3>
+          <!--icon details meny-->
+        </div>
+        <h2 class="text-lg text-gray-500 font-bold">{{item.price}}</h2>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CommandeComponent } from './restaurant/caissier/commande/commande.component';
@@ -14,6 +16,8 @@ import { MenuComponent } from './restaurant/caissier/accueil/menu/menu.component
 import { FoodsComponent } from './restaurant/caissier/accueil/foods/foods.component';
 import { DessertsComponent } from './restaurant/caissier/accueil/desserts/desserts.component';
 import { DrinksComponent } from './restaurant/caissier/accueil/drinks/drinks.component';
+import { RepasComponent } from './restaurant/gerant/repas/repas.component';
+import { EmployesComponent } from './restaurant/gerant/employes/employes.component';
 
 
 @NgModule({
@@ -29,10 +33,14 @@ import { DrinksComponent } from './restaurant/caissier/accueil/drinks/drinks.com
     MenuComponent,
     FoodsComponent,
     DessertsComponent,
-    DrinksComponent
+    DrinksComponent,
+    RepasComponent,
+    EmployesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
