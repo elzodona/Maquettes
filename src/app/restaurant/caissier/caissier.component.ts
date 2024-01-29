@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CaissierComponent {
 
-  navigation: string= 'accueil'
+  navigation: string= 'commande'
 
   accueil()
   {

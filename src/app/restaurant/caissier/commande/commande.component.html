@@ -1,1 +1,26 @@
-<p>commande works!</p>
+<!--accueil-->
+
+<div class="rounded-lg  h-[68dvh] py-3">
+
+    <ng-container *ngIf="nav=='surPlace'" >
+        <app-surplace></app-surplace>
+    </ng-container>
+  
+    <ng-container *ngIf="nav=='aLivrer'">
+        <app-alivrer></app-alivrer>
+    </ng-container>
+  
+    
+  
+  </div>
+  
+  <hr>
+  <div class=" flex justify-between rounded-lg w-[28%] p-4 ml-2">
+    <button (click)="surPlace()" class="w-[46%] bg-yellow-400 ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-white font-bold text-lg rounded-xl flex justify-center">
+      Sur place
+    </button>
+    <button (click)="aLivrer()" class="w-[46%] ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center">
+      A livrer
+    </button>
+
+  </div> 

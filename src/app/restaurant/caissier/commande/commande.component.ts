@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class CommandeComponent {
 
+  nav! : string 
+
+  ngOnInit(){
+    this.nav = "surPlace"
+  }
+
+
+
+  surPlace(){
+      this.nav = 'surPlace'
+  }
+
+  aLivrer(){
+    this.nav = 'aLivrer'
+  }
 }

@@ -16,8 +16,14 @@ import { MenuComponent } from './restaurant/caissier/accueil/menu/menu.component
 import { FoodsComponent } from './restaurant/caissier/accueil/foods/foods.component';
 import { DessertsComponent } from './restaurant/caissier/accueil/desserts/desserts.component';
 import { DrinksComponent } from './restaurant/caissier/accueil/drinks/drinks.component';
+
+import { CommandeticketComponent } from './restaurant/caissier/commande/commandeticket/commandeticket.component';
+import { SurplaceComponent } from './restaurant/caissier/commande/surplace/surplace.component';
+import { AlivrerComponent } from './restaurant/caissier/commande/alivrer/alivrer.component';
+
 import { RepasComponent } from './restaurant/gerant/repas/repas.component';
 import { EmployesComponent } from './restaurant/gerant/employes/employes.component';
+
 
 
 @NgModule({
@@ -34,6 +40,9 @@ import { EmployesComponent } from './restaurant/gerant/employes/employes.compone
     FoodsComponent,
     DessertsComponent,
     DrinksComponent,
+    CommandeticketComponent,
+    SurplaceComponent,
+    AlivrerComponent
     RepasComponent,
     EmployesComponent
   ],
