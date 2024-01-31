@@ -16,10 +16,14 @@
   
   <hr>
   <div class=" flex justify-between rounded-lg w-[28%] p-4 ml-2">
-    <button (click)="surPlace()" class="w-[46%] bg-yellow-400 ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-white font-bold text-lg rounded-xl flex justify-center">
-      Sur place
+    <button (click)="surPlace()" class="w-[46%] ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center"
+        [class.bg-yellow-600]="nav === 'surPlace'"
+        [class]="{'text-[#F7F7F7]': nav === 'surPlace'}">
+        Sur place
     </button>
-    <button (click)="aLivrer()" class="w-[46%] ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center">
+    <button (click)="aLivrer()" class="w-[46%] ring-1 ring-yellow-700 shadow-md shadow-yellow-700 px-2 py-1 text-yellow-600 font-bold text-lg rounded-xl flex justify-center"
+        [class.bg-yellow-600]="nav === 'aLivrer'"
+        [class]="{'text-[#F7F7F7]': nav === 'aLivrer'}">
       A livrer
     </button>
 
