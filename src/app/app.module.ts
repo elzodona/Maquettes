@@ -42,7 +42,7 @@ import { EmployesComponent } from './restaurant/gerant/employes/employes.compone
     DrinksComponent,
     CommandeticketComponent,
     SurplaceComponent,
-    AlivrerComponent
+    AlivrerComponent,
     RepasComponent,
     EmployesComponent
   ],
