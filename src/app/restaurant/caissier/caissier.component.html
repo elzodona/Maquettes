@@ -22,14 +22,26 @@
       <div class="bg-white w-[68%] h-auto ring-1 ring-yellow-400 rounded-lg shadow-sm shadow-yellow-600 mt-2 ">
         <div class="flex w-[40%]  justify-between p-2 mt-2">
           <div (click)="accueil()"
-            class="w-[30%] cursor-pointer shadow-md shadow-yellow-600 bg-yellow-600 px-2 py-1 text-white font-bold text-lg rounded-xl flex justify-center">
-            Accueil</div>
+          class="w-[30%] cursor-pointer shadow-md shadow-yellow-600 bg-white ring-1 ring-yellow-700 px-2 py-1 text-yellow-800 font-bold text-lg rounded-xl flex justify-center"
+            [class.bg-yellow-600]="navigation === 'accueil'"
+            [class]="{'text-[#F7F7F7]': navigation === 'accueil'}">
+            Accueil
+          </div>
+
           <div (click)="commande()"
-            class="w-[30%] cursor-pointer shadow-md shadow-yellow-600 bg-white ring-1 ring-yellow-700 px-2 py-1 text-yellow-800 font-bold text-lg rounded-xl flex justify-center">
-            Commande</div>
+            class="w-[30%] cursor-pointer shadow-md shadow-yellow-600 bg-white ring-1 ring-yellow-700 px-2 py-1 text-yellow-800 font-bold text-lg rounded-xl flex justify-center"
+            [class.bg-yellow-600]="navigation === 'commande'"
+            [class]="{'text-[#F7F7F7]': navigation === 'commande'}">
+           
+            Commande
+          </div>
           <div (click)="reservation()"
-            class="w-[30%] cursor-pointer shadow-md shadow-yellow-600 bg-white ring-1 ring-yellow-700 px-2 py-1 text-yellow-800 font-bold text-lg rounded-xl flex justify-center">
-            Reservation</div>
+            class="w-[30%] cursor-pointer shadow-md shadow-yellow-600 bg-white ring-1 ring-yellow-700 px-2 py-1 text-yellow-800 font-bold text-lg rounded-xl flex justify-center"
+            [class.bg-yellow-600]="navigation === 'reservation'"
+            [class]="{'text-[#F7F7F7]': navigation === 'reservation'}">
+           
+            Reservation
+          </div>
         </div>
         <div class="m-2 rounded-lg shadow-sm shadow-yellow-600 bg-white h-[77dvh] ">
 

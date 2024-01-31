@@ -11,12 +11,12 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 })
 export class AccueilticketComponent {
 
-  actions : string[] = ['A livrer','Sur place'];
+  actions : string[] = ['A livrer','A emporter'];
   actionButton : string[] = ['Payer','Enregistrer'];
   button! : string
   hideCostumer : boolean = true
   commandeForm!: FormGroup;
-  selectedAction: string = 'Sur place';
+  selectedAction: string = 'A emporter';
   total: number = 0;
 
 
