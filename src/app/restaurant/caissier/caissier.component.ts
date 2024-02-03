@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-caissier',
@@ -6,8 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./caissier.component.css']
 })
 export class CaissierComponent {
+  @Input() navs!: string
+  @Input() ticketOrder : any
 
+  
   navigation: string= 'commande'
+
+  
+  recupTicketFromCom(data :any){
+    this.ticketOrder = data
+  }
+  
+  getFromChild(data : any){
+    this.navs = data;
+  }
+
 
   accueil()
   {

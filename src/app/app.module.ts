@@ -23,6 +23,8 @@ import { AlivrerComponent } from './restaurant/caissier/commande/alivrer/alivrer
 
 import { RepasComponent } from './restaurant/gerant/repas/repas.component';
 import { EmployesComponent } from './restaurant/gerant/employes/employes.component';
+import { SurplaceticketComponent } from './restaurant/caissier/commande/commandeticket/surplaceticket/surplaceticket.component';
+import { AlivrerticketComponent } from './restaurant/caissier/commande/commandeticket/alivrerticket/alivrerticket.component';
 
 
 
@@ -44,7 +46,9 @@ import { EmployesComponent } from './restaurant/gerant/employes/employes.compone
     SurplaceComponent,
     AlivrerComponent,
     RepasComponent,
-    EmployesComponent
+    EmployesComponent,
+    SurplaceticketComponent,
+    AlivrerticketComponent
   ],
   imports: [
     BrowserModule,
