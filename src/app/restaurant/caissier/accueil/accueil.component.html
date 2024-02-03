@@ -11,11 +11,11 @@
   </ng-container>
 
   <ng-container *ngIf="nav=='drinks'" >
-    <app-drinks></app-drinks>
+    <app-drinks (com)="addDrink($event)"></app-drinks>
   </ng-container>
 
   <ng-container *ngIf="nav=='desserts'" >
-    <app-desserts></app-desserts>
+    <app-desserts (dess)="addDessert($event)"></app-desserts>
   </ng-container>
 
 </div>

@@ -14,6 +14,8 @@
 <form [formGroup]="commandeForm">
 
   <div formArrayName="plats" class="p-2 mt-4 h-[52dvh] ring-1 ring-yellow-400 rounded-lg shadow-sm shadow-yellow-600 overflow-y-scroll overflow-hidden">
+
+    <ng-container *ngIf="plats.length > 0">
     <div *ngFor="let plat of plats.controls; let i = index" [formGroupName]="i"
       class="bg-color1 my-4 text-md text-gray-700 font-semibold flex justify-between ring-1 ring-yellow-600 rounded-xl p-1">
       <div class="p-1 ml-1 w-20">
@@ -32,8 +34,14 @@
           <span class="cursor-pointer" (click)="supprimerPlat(i)">x</span>
         </div>
       </div>
-
     </div>
+    </ng-container>
+
+    <ng-container *ngIf="plats.length == 0">
+      <h2 class="text-yellow-600 text-xl mt-32 ml-20">Aucune sélection en cours</h2>
+    </ng-container>
+
+
   </div>
 
 </form>

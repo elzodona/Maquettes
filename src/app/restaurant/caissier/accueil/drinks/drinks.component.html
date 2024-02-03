@@ -10,14 +10,14 @@
 
   <div class="flex flex-wrap overflow-y-auto mx-2 px-4">
 
-    <div *ngFor="let item of drinks" class=" w-auto h-52 m-8 ">
-      <div class="ring-2 ring-yellow-600 w-36 h-36 rounded-full overflow-hidden">
+    <div *ngFor="let item of drinks" (click)="selectItem(item)" class="cursor-pointer w-auto h-52 m-8 ">
+      <div [ngClass]="{'ring-2 ring-yellow-600 w-32 h-32 rounded-full overflow-hidden': !item.selected, 'ring-4 ring-green-600 w-36 h-36 rounded-full overflow-hidden': item.selected}">
         <img class="w-[100%] h-[100%]" [src]="item.images" alt="">
       </div>
 
       <div class="m-2 flex justify-center flex-col gap-1 items-center">
-        <h3 class="text-lg w-40 text-yellow-600 font-bold">{{item.name}}</h3>
-        <h2 class="text-lg ml-[-4em] text-gray-500 font-bold">{{item.price}} fcfa</h2>
+        <h3 class="text-lg w-40 text-yellow-600 font-bold">{{item.nom}}</h3>
+        <h2 class="text-lg ml-[-4em] text-gray-500 font-bold">{{item.prix}} fcfa</h2>
       </div>
     </div>
 
