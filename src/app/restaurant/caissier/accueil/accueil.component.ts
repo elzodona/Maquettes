@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { DrinksComponent } from './drinks/drinks.component';
+import { DessertsComponent } from './desserts/desserts.component';
 
 @Component({
   selector: 'app-accueil',
@@ -7,7 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AccueilComponent {
 
-  nav: string='menu'
+  nav: string ='desserts'
+
+  @Output() coms = new EventEmitter;
+  @Output() dess = new EventEmitter;
+
+  @ViewChild(DrinksComponent) drinksComponent!: DrinksComponent;
+  @ViewChild(DessertsComponent) dessertsComponent!: DessertsComponent;
+
+
 
   menu()
   {
@@ -28,5 +38,17 @@ export class AccueilComponent {
   {
     this.nav = 'drinks'
   }
+
+  addDrink(com: any)
+  {
+    // console.log(com);
+    this.coms.emit(com);
+  }
+
+  addDessert(dess: any) {
+    // console.log(com);
+    this.dess.emit(dess);
+  }
+
 
 }

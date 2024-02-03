@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
@@ -11,13 +11,16 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 })
 export class AccueilticketComponent {
 
-  actions : string[] = ['A livrer','A emporter'];
+  actions : string[] = ['A livrer','Sur place'];
   actionButton : string[] = ['Payer','Enregistrer'];
   button! : string
   hideCostumer : boolean = true
   commandeForm!: FormGroup;
-  selectedAction: string = 'A emporter';
+  selectedAction: string = 'Sur place';
   total: number = 0;
+
+  // @Input() coms: any;
+  @Output() nom = new EventEmitter;
 
 
 
@@ -27,16 +30,28 @@ export class AccueilticketComponent {
       plats: this.fb.array([
       ])
     });
+
   }
 
   ngOnInit(){
     this.button = this.actionButton[0];
 
-    this.ajouterPlat('Chocolat', 1000);
-    this.ajouterPlat('Pizza', 1000);
-    this.ajouterPlat('Salade', 800);
-    this.ajouterPlat('Pizza', 1000);
-    // console.log(this.plats.value);
+    const platss = localStorage.getItem('plats')!;
+    const allPlats = JSON.parse(platss);
+    // console.log(plats);
+    if (allPlats) {
+      allPlats.forEach((plat:any) =>
+        {
+          const platFormGroup = this.fb.group({
+            nom: plat.nom,
+            quantite: plat.quantite,
+            prix: plat.prix
+          });
+          this.plats.push(platFormGroup);
+          this.total += plat.prix
+        })
+    }
+
   }
 
   get plats(): FormArray {
@@ -59,10 +74,19 @@ export class AccueilticketComponent {
 
   supprimerPlat(index: number)
   {
-    // console.log(index);
+    const platControl = this.plats.at(index);
+
+    if (platControl) {
+      const nom = platControl.get('nom')?.value;
+      this.nom.emit(nom);
+    }
+
+    const dataFromLocalStorage = JSON.parse(localStorage.getItem('plats')!) || [];
+    dataFromLocalStorage.splice(index, 1);
+    localStorage.setItem('plats', JSON.stringify(dataFromLocalStorage));
+
     const prix = this.plats.at(index).get('prix')?.value;
-    // console.log(prix);
-    this.total-=prix
+    this.total -= prix;
     this.plats.removeAt(index);
   }
 

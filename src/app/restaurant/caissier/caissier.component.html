@@ -47,7 +47,7 @@
 
           <!-- Accueil -->
           <ng-container *ngIf="navigation=='accueil'" >
-            <app-accueil></app-accueil>
+            <app-accueil (coms)="test2($event)" (dess)="addDesserts($event)"></app-accueil>
           </ng-container>
 
           <ng-container *ngIf="navigation=='commande'" >
@@ -68,7 +68,7 @@
         <!-- ticket accueil -->
 
         <ng-container *ngIf="navigation=='accueil'">
-          <app-accueilticket></app-accueilticket>
+          <app-accueilticket (nom)="deselect($event)"></app-accueilticket>
         </ng-container>
 
         <ng-container *ngIf="navigation=='commande'">
