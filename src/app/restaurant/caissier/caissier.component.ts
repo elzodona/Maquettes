@@ -1,3 +1,4 @@
+import { Component, EventEmitter, Input } from '@angular/core';
 import { Component, Input, ViewChild } from '@angular/core';
 import { AccueilticketComponent } from './accueil/accueilticket/accueilticket.component';
 import { FormBuilder } from '@angular/forms';
@@ -11,7 +12,8 @@ import { AccueilComponent } from './accueil/accueil.component';
   styleUrls: ['./caissier.component.css']
 })
 export class CaissierComponent {
-
+  @Input() navs!: string
+  @Input() ticketOrder : any
   navigation: string = 'accueil'
 
   @ViewChild(AccueilticketComponent) accueilticketComponent!: AccueilticketComponent;
@@ -19,6 +21,15 @@ export class CaissierComponent {
 
 
   constructor(private fb: FormBuilder){}
+
+  
+  recupTicketFromCom(data :any){
+    this.ticketOrder = data
+  }
+  
+  getFromChild(data : any){
+    this.navs = data;
+  }
 
 
   accueil()

@@ -3,7 +3,7 @@
 <div class="rounded-lg  h-[68dvh] py-3">
 
     <ng-container *ngIf="nav=='surPlace'" >
-        <app-surplace></app-surplace>
+        <app-surplace (orderTicket)="recupTicket($event)"></app-surplace>
     </ng-container>
 
     <ng-container *ngIf="nav=='aLivrer'">
