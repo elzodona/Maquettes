@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input } from '@angular/core';
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, EventEmitter, ViewChild } from '@angular/core';
 import { AccueilticketComponent } from './accueil/accueilticket/accueilticket.component';
 import { FormBuilder } from '@angular/forms';
 import { DessertsComponent } from './accueil/desserts/desserts.component';
@@ -22,11 +21,11 @@ export class CaissierComponent {
 
   constructor(private fb: FormBuilder){}
 
-  
+
   recupTicketFromCom(data :any){
     this.ticketOrder = data
   }
-  
+
   getFromChild(data : any){
     this.navs = data;
   }

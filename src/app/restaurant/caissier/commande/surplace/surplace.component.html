@@ -4,27 +4,23 @@
             <input type="search" class=" border-white h-6 text-yellow-700 placeholder-yellow-600" placeholder="Search">
         </div>
 
-
         <div class="w-[22%] flex justify-center">
             <select  id="" class="bg-white m-3 ring-1 ring-yellow-400 rounded-xl shadow-sm shadow-yellow-600 w-[100%] flex justify-center p-1 pl-2">
               <!-- <option value="" disabled >Selectionner une categorie</option> -->
-              <option   >Non livré</option>
-              <option   >Livré</option>
-
+              <option>Non livré</option>
+              <option>Livré</option>
             </select>
         </div>
     </div>
-  
+
     <div class="w-full h-[100%]  py-2 bg-yellow-300 flex  flex-wrap  overflow-y-auto  px-10">
-  
+
 
         <div *ngFor="let item of orders" (click)="foodOrder(item)"
-         class="bg-color1 m-2 w-auto h-16 p-2 flex justify-between items-center shadow-sm shadow-yellow-400 rounded-full  ">
+         class="cursor-pointer bg-color1 m-2 w-auto h-16 p-2 flex justify-between items-center shadow-sm shadow-yellow-400 rounded-full  ">
             <div class="relative  w-14 h-14  rounded-full">
                 <div class="bg-white ring-2 ring-yellow-400 rounded-full w-[100%] h-full">
                     <img class="rounded-full h-full w-full" src="assets/Restaurant/Icons/dinningtable.png" alt="">
-                      
-                    
                 </div>
             </div>
 
@@ -32,12 +28,11 @@
                 <span>{{item.numTable}}</span>
             </div>
             <div>
-                
-            </div> 
+
+            </div>
         </div>
 
-        
-    </div>  
+
+    </div>
   </div>
 
- 
