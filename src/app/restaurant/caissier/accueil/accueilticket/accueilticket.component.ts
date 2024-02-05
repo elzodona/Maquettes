@@ -72,11 +72,12 @@ export class AccueilticketComponent {
     localStorage.setItem('plats', JSON.stringify(updatedData));
   }
 
+
   supprimerPlat(index: number)
   {
     const platControl = this.plats.at(index);
 
-    if (platControl) {
+    if(platControl){
       const nom = platControl.get('nom')?.value;
       this.nom.emit(nom);
     }

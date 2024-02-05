@@ -9,10 +9,12 @@ import { DessertsComponent } from './desserts/desserts.component';
 })
 export class AccueilComponent {
 
-  nav: string ='desserts'
+  nav: string ='foods';
+  getFoodItems : any;
 
   @Output() coms = new EventEmitter;
   @Output() dess = new EventEmitter;
+  @Output() fds = new EventEmitter;
 
   @ViewChild(DrinksComponent) drinksComponent!: DrinksComponent;
   @ViewChild(DessertsComponent) dessertsComponent!: DessertsComponent;
@@ -48,6 +50,10 @@ export class AccueilComponent {
   addDessert(dess: any) {
     // console.log(com);
     this.dess.emit(dess);
+  }
+
+  addFood(food : any){
+    this.fds.emit(food);
   }
 
 
