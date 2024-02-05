@@ -13,10 +13,12 @@ import { AccueilComponent } from './accueil/accueil.component';
 export class CaissierComponent {
   @Input() navs!: string
   @Input() ticketOrder : any
-  navigation: string = 'accueil'
+  navigation: string = 'accueil';
+  getFoodItems : any
 
   @ViewChild(AccueilticketComponent) accueilticketComponent!: AccueilticketComponent;
   @ViewChild(AccueilComponent) accueilComponent!: AccueilComponent;
+  
 
 
   constructor(private fb: FormBuilder){}
@@ -70,7 +72,7 @@ export class CaissierComponent {
   }
 
   addDesserts(dess: any) {
-
+    
     if (dess.selected == true) {
       this.accueilticketComponent.ajouterPlat(dess.nom, dess.prix)
 
@@ -107,6 +109,24 @@ export class CaissierComponent {
 
   }
 
+  addFoods(food :any){
+    if(food.selected == true){
+      this.accueilticketComponent.ajouterPlat(food.nom, food.prix)
+    }else{
+      console.log(food)
+
+      let plats = this.accueilticketComponent.plats.value;
+      console.log(plats);
+      
+      let indexItem = plats.findIndex((plat : any) =>{
+        plat.nom == food.nom;
+      })
+      console.log(indexItem);
+      
+      this.accueilticketComponent.supprimerPlat(indexItem)
+      
+    }
+  }
 
 
 }
