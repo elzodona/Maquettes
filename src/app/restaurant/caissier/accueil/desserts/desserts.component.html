@@ -9,9 +9,9 @@
 
   <div class="flex flex-wrap overflow-y-auto mx-2 px-4">
 
-    <div *ngFor="let item of desserts" (click)="selectItem(item)" class="cursor-pointer w-auto h-52 m-8 ">
-      <div [ngClass]="{'ring-2 ring-yellow-600 w-32 h-32 rounded-full overflow-hidden': !item.selected, 'ring-4 ring-green-600 w-36 h-36 rounded-full overflow-hidden': item.selected}">
-        <img class="w-[100%] h-[100%]" [src]="item.images" alt="">
+    <div *ngFor="let item of desserts"  class=" w-auto h-52 m-8 ">
+      <div (click)="selectItem(item)" [ngClass]="{'ring-2 ring-yellow-600 w-32 h-32 rounded-full overflow-hidden': !item.selected, 'ring-4 ring-green-600 w-36 h-36 rounded-full overflow-hidden': item.selected}">
+        <img class="cursor-pointer w-[100%] h-[100%]" [src]="item.images" alt="">
       </div>
 
       <div class="m-2 flex justify-center flex-col gap-1 items-center">

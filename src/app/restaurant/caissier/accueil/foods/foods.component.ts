@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-foods',
@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class FoodsComponent {
 
   foodArticle: any;
+  @Output() foodItems = new EventEmitter;
+  selectedFoods : any = [];
 
   foods : any = [
     {
@@ -219,14 +221,51 @@ export class FoodsComponent {
 
   ngOnInit(){
     this.foodArticle = this.foods.filter((e : any) =>e.type == "Accompagnements")[0].contents;
+    let foodInStg = localStorage.getItem("selectedFoods");
+    console.log(foodInStg)
+    if(foodInStg){
+      let parsedItem = JSON.parse(foodInStg)
+      
+      parsedItem.forEach((item: any) => {
+        let gottenItem = item.images;
+        let findGottenItem = gottenItem.split('/')[2]
+      // console.log(findGottenItem);
+      
+         this.foods.forEach((elm :any )=>{
+            if(elm.type == findGottenItem){
+          // console.log(elm.contents)           
+
+               elm.contents.forEach((cont : any)=>{
+                if(cont.nom == item.nom){
+                  cont.selected = true;
+                };
+              }) 
+            }
+         })
+      });
+    }
   }
 
 
   SelectCategorie(event : any){
     let gottenArticle = event.target[event.target.selectedIndex].text;
     this.foodArticle = this.foods.filter((e : any) =>e.type == gottenArticle)[0].contents;
-    console.log(this.foodArticle);
+    // console.log(this.foodArticle);
   }
 
 
+  selectedFood(data : any){
+    if(data.selected == false || data.selected == undefined){
+      data.selected = true;
+      this.selectedFoods.push(data)
+    }else{
+      data.selected = false
+      this.selectedFoods.filter((element:any)=>{
+        element.nom !== data.nom
+      })
+    }
+    localStorage.setItem("selectedFoods",JSON.stringify(this.selectedFoods))
+    // console.log(data);
+    this.foodItems.emit(data)
+  }
 }

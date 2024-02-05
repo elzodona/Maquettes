@@ -7,7 +7,7 @@
   </ng-container>
 
   <ng-container *ngIf="nav=='foods'" >
-    <app-foods></app-foods>
+    <app-foods (foodItems)="addFood($event)"></app-foods>
   </ng-container>
 
   <ng-container *ngIf="nav=='drinks'" >
