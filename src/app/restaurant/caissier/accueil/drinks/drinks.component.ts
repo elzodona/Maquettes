@@ -80,7 +80,6 @@ export class DrinksComponent {
     }
   }
 
-
   selectItem(item: any) {
     if (item.selected == undefined || !item.selected) {
 
@@ -107,6 +106,7 @@ export class DrinksComponent {
       localStorage.setItem('selectedDrinks', JSON.stringify(this.selectedDrinks));
     }
   }
+
 
 
 }

@@ -15,44 +15,44 @@ export class FoodsComponent {
       contents : [
         {
           'images': 'assets/Restaurant/Accompagnements/ACCRAS.png',
-          'name' : 'Accra',
-          'price': 1500
+          'nom' : 'Accra',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Accompagnements/ALOKO.png',
-          'name' : 'Aloko',
-          'price': 1500
+          'nom' : 'Aloko',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Accompagnements/FRITE.png',
-          'name' : 'Frite',
-          'price': 1500
+          'nom' : 'Frite',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Accompagnements/NEMS.png',
-          'name' : 'Nems',
-          'price': 1500
+          'nom' : 'Nems',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Accompagnements/PATATE DOUCE.png',
-          'name' : 'Patate Douce',
-          'price': 1500
+          'nom' : 'Patate Douce',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Accompagnements/salade légumes.jpeg',
-          'name' : 'Salade légumes',
-          'price': 1500
+          'nom' : 'Salade légumes',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Accompagnements/SAMOUSSA.png',
-          'name' : 'Samoussa',
-          'price': 1500
+          'nom' : 'Samoussa',
+          'prix': 1500
         }
       ]
     },
@@ -62,44 +62,44 @@ export class FoodsComponent {
       contents: [
         {
           'images': 'assets/Restaurant/Plats/firire.jpeg',
-          'name': 'firire',
-          'price': 1500
+          'nom': 'firire',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Plats/maffé.jpeg',
-          'name': 'Maffé',
-          'price': 1500
+          'nom': 'Maffé',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Plats/makhal_saloum.jpeg',
-          'name': 'Makhal Saloum',
-          'price': 1500
+          'nom': 'Makhal Saloum',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Plats/makhal_yaap.jpeg',
-          'name': 'Makhal Yaap',
-          'price': 1500
+          'nom': 'Makhal Yaap',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Plats/soupe_kandia.jpeg',
-          'name': 'Soupe Kandia',
-          'price': 1500
+          'nom': 'Soupe Kandia',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Plats/thiebou_dieun.jpeg',
-          'name': 'Thiebou Dieun',
-          'price': 1500
+          'nom': 'Thiebou Dieun',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Plats/yassa_poulet.jpeg',
-          'name': 'Yassa Poulet',
-          'price': 1500
+          'nom': 'Yassa Poulet',
+          'prix': 1500
         }
       ]
     },
@@ -109,32 +109,32 @@ export class FoodsComponent {
       contents: [
         {
           'images': 'assets/Restaurant/Grillades/CUISSE DE POULET.png',
-          'name': 'CUISSE DE POULET',
-          'price': 1500
+          'nom': 'CUISSE DE POULET',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Grillades/POISSON CAPITAINE.png',
-          'name': 'POISSON CAPITAINE',
-          'price': 1500
+          'nom': 'POISSON CAPITAINE',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Grillades/POISSON TILAPIA.png',
-          'name': 'POISSON TILAPIA',
-          'price': 1500
+          'nom': 'POISSON TILAPIA',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Grillades/POULET ENTIER.png',
-          'name': 'POULET ENTIER',
-          'price': 1500
+          'nom': 'POULET ENTIER',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Grillades/VIANDE D AGNEAU GRILLE (DIBI SOGO).png',
-          'name': 'Dibi',
-          'price': 1500
+          'nom': 'Dibi',
+          'prix': 1500
         }
       ]
     },
@@ -144,32 +144,32 @@ export class FoodsComponent {
       contents: [
         {
           'images': 'assets/Restaurant/Supplements/PERSILLADE VERT.png',
-          'name': 'PERSILLADE VERT',
-          'price': 1500
+          'nom': 'PERSILLADE VERT',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Supplements/PIMENT.png',
-          'name': 'PIMENT',
-          'price': 1500
+          'nom': 'PIMENT',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Supplements/SAUCE ROUGE.png',
-          'name': 'SAUCE ROUGE',
-          'price': 1500
+          'nom': 'SAUCE ROUGE',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Supplements/SUPPLEMENT LEGUMES.png',
-          'name': 'LEGUMES',
-          'price': 1500
+          'nom': 'LEGUMES',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Supplements/VINAIGRETTE MAISON.png',
-          'name': 'VINAIGRETTE',
-          'price': 1500
+          'nom': 'VINAIGRETTE',
+          'prix': 1500
         }
       ]
     },
@@ -179,38 +179,38 @@ export class FoodsComponent {
       contents: [
         {
           'images': 'assets/Restaurant/Sauces/SAUCE MAFE BOEUF.png',
-          'name': 'MAFE BOEUF',
-          'price': 1500
+          'nom': 'MAFE BOEUF',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Sauces/SAUCE MAFE POULET.png',
-          'name': 'MAFE POULET',
-          'price': 1500
+          'nom': 'MAFE POULET',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Sauces/SAUCE MAFE SIMPLE.png',
-          'name': 'MAFE SIMPLE',
-          'price': 1500
+          'nom': 'MAFE SIMPLE',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Sauces/SAUCE SAKA SAKA SIMPLE.png',
-          'name': 'SAKA SAKA SIMPLE',
-          'price': 1500
+          'nom': 'SAKA SAKA SIMPLE',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Sauces/SAUCE SOUPE KANDIA SIMPLE.png',
-          'name': 'Patate Douce',
-          'price': 1500
+          'nom': 'Patate Douce',
+          'prix': 1500
         },
 
         {
           'images': 'assets/Restaurant/Sauces/SAUCE YASSA SIMPLE.png',
-          'name': 'YASSA SIMPLE',
-          'price': 1500
+          'nom': 'YASSA SIMPLE',
+          'prix': 1500
         }
       ]
     }
