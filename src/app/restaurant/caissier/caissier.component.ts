@@ -103,9 +103,6 @@ export class CaissierComponent {
         dessertsComponent.updateItemStateByNom(nom);
         return;
 
-    if (drinksComponent && drinksComponent.drinks) {
-      drinksComponent.updateItemStateByNom(nom);
-      return
     }
 
     if (dessertsComponent && dessertsComponent.desserts) {
@@ -127,7 +124,7 @@ export class CaissierComponent {
 
   }
 
-  addFoods(food :any){
+  addFoods(food : any){
     if(food.selected == true){
       this.accueilticketComponent.ajouterPlat(food.nom, food.prix)
 
