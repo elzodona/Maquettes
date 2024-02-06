@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { DessertsComponent } from './accueil/desserts/desserts.component';
 import { DrinksComponent } from './accueil/drinks/drinks.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { MenuComponent } from './accueil/menu/menu.component';
 
 @Component({
   selector: 'app-caissier',
@@ -18,7 +19,7 @@ export class CaissierComponent {
 
   @ViewChild(AccueilticketComponent) accueilticketComponent!: AccueilticketComponent;
   @ViewChild(AccueilComponent) accueilComponent!: AccueilComponent;
-  
+  @ViewChild(MenuComponent) menuComponent! : MenuComponent;
 
 
   constructor(private fb: FormBuilder){}
@@ -90,22 +91,23 @@ export class CaissierComponent {
   deselect(nom: string) {
     const drinksComponent = this.accueilComponent.drinksComponent;
     const dessertsComponent = this.accueilComponent.dessertsComponent;
+    const menuComponent = this.accueilComponent.menuComponent
 
     if (drinksComponent && drinksComponent.drinks) {
-      const drinkItem = drinksComponent.drinks.find((drink: any) => drink.nom === nom);
-      if (drinkItem) {
         drinksComponent.updateItemStateByNom(nom);
         return;
-      }
     }
 
     if (dessertsComponent && dessertsComponent.desserts) {
-      const dessertItem = dessertsComponent.desserts.find((dessert: any) => dessert.nom === nom);
-      if (dessertItem) {
         dessertsComponent.updateItemStateByNom(nom);
         return;
-      }
     }
+
+    
+    if (menuComponent && menuComponent.menu) {
+      menuComponent.updateItemStateByNom(nom);
+      return;
+  }
 
   }
 
@@ -118,10 +120,29 @@ export class CaissierComponent {
       let plats = this.accueilticketComponent.plats.value;
       console.log(plats);
       
-      let indexItem = plats.findIndex((plat : any) =>{
-        plat.nom == food.nom;
-      })
+      let indexItem = plats.findIndex((plat : any) =>
+        plat.nom == food.nom
+      )
       console.log(indexItem);
+      
+      this.accueilticketComponent.supprimerPlat(indexItem)
+      
+    }
+  }
+
+  addMenu(data : any){
+    if(data.selected == true){
+      this.accueilticketComponent.ajouterPlat(data.nom, data.prix)
+    }else{
+      // console.log(data)
+
+      let plats = this.accueilticketComponent.plats.value;
+      // console.log(plats);
+      
+      let indexItem = plats.findIndex((plat : any) =>
+        plat.nom == data.nom
+      )
+      // console.log(indexItem);
       
       this.accueilticketComponent.supprimerPlat(indexItem)
       
