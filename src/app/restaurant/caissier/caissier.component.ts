@@ -102,15 +102,6 @@ export class CaissierComponent {
     if (dessertsComponent && dessertsComponent.desserts) {
         dessertsComponent.updateItemStateByNom(nom);
         return;
-
-    if (drinksComponent && drinksComponent.drinks) {
-      drinksComponent.updateItemStateByNom(nom);
-      return
-    }
-
-    if (dessertsComponent && dessertsComponent.desserts) {
-      dessertsComponent.updateItemStateByNom(nom);
-      return;
     }
 
     if (foodsComponent && foodsComponent.foods) {
@@ -119,7 +110,7 @@ export class CaissierComponent {
 
     }
 
-    
+
     if (menuComponent && menuComponent.menu) {
       menuComponent.updateItemStateByNom(nom);
       return;
@@ -148,14 +139,14 @@ export class CaissierComponent {
 
       let plats = this.accueilticketComponent.plats.value;
       // console.log(plats);
-      
+
       let indexItem = plats.findIndex((plat : any) =>
         plat.nom == data.nom
       )
       // console.log(indexItem);
-      
+
       this.accueilticketComponent.supprimerPlat(indexItem)
-      
+
     }
   }
 
