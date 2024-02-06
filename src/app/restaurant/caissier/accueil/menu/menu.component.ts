@@ -21,7 +21,6 @@ export class MenuComponent {
           photo : 'assets/Restaurant/Plats/yassa_poulet.jpeg',
           nom : 'yassa_poulet',
         },
-
         'drink': 
         {
           photo : 'assets/Restaurant/Drinks/COCA COLA 33CL.png',

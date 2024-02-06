@@ -73,7 +73,7 @@ export class CaissierComponent {
   }
 
   addDesserts(dess: any) {
-    
+
     if (dess.selected == true) {
       this.accueilticketComponent.ajouterPlat(dess.nom, dess.prix)
 
@@ -91,6 +91,7 @@ export class CaissierComponent {
   deselect(nom: string) {
     const drinksComponent = this.accueilComponent.drinksComponent;
     const dessertsComponent = this.accueilComponent.dessertsComponent;
+    const foodsComponent = this.accueilComponent.foodsComponent;
     const menuComponent = this.accueilComponent.menuComponent
 
     if (drinksComponent && drinksComponent.drinks) {
@@ -101,6 +102,21 @@ export class CaissierComponent {
     if (dessertsComponent && dessertsComponent.desserts) {
         dessertsComponent.updateItemStateByNom(nom);
         return;
+
+    if (drinksComponent && drinksComponent.drinks) {
+      drinksComponent.updateItemStateByNom(nom);
+      return
+    }
+
+    if (dessertsComponent && dessertsComponent.desserts) {
+      dessertsComponent.updateItemStateByNom(nom);
+      return;
+    }
+
+    if (foodsComponent && foodsComponent.foods) {
+      foodsComponent.updateItemStateByNom(nom);
+      return;
+
     }
 
     
@@ -114,19 +130,13 @@ export class CaissierComponent {
   addFoods(food :any){
     if(food.selected == true){
       this.accueilticketComponent.ajouterPlat(food.nom, food.prix)
-    }else{
-      console.log(food)
 
+    }else{
       let plats = this.accueilticketComponent.plats.value;
-      console.log(plats);
-      
-      let indexItem = plats.findIndex((plat : any) =>
-        plat.nom == food.nom
-      )
-      console.log(indexItem);
-      
+      // console.log(plats);
+      let indexItem = plats.findIndex((plat : any) => plat.nom == food.nom)
+      // console.log(indexItem);
       this.accueilticketComponent.supprimerPlat(indexItem)
-      
     }
   }
 

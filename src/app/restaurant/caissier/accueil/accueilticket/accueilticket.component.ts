@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 
@@ -9,6 +8,7 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
   templateUrl: './accueilticket.component.html',
   styleUrls: ['./accueilticket.component.css']
 })
+
 export class AccueilticketComponent {
 
   actions : string[] = ['A livrer','Sur place'];

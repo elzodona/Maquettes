@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core
 import { DrinksComponent } from './drinks/drinks.component';
 import { DessertsComponent } from './desserts/desserts.component';
 import { MenuComponent } from './menu/menu.component';
+import { FoodsComponent } from './foods/foods.component';
 
 @Component({
   selector: 'app-accueil',
@@ -22,7 +23,7 @@ export class AccueilComponent {
   @ViewChild(DrinksComponent) drinksComponent!: DrinksComponent;
   @ViewChild(DessertsComponent) dessertsComponent!: DessertsComponent;
   @ViewChild(MenuComponent) menuComponent! : MenuComponent;
- 
+  @ViewChild(FoodsComponent) foodsComponent!: FoodsComponent;
 
 
 

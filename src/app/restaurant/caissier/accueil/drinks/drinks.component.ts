@@ -9,7 +9,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class DrinksComponent {
 
-  
+
   drinks: any = [
     {
       'images': 'assets/Restaurant/Drinks/COCA COLA 33CL.png',
@@ -81,7 +81,6 @@ export class DrinksComponent {
     }
   }
 
-
   selectItem(item: any) {
     if (item.selected == undefined || !item.selected) {
 
@@ -108,6 +107,7 @@ export class DrinksComponent {
       localStorage.setItem('selectedDrinks', JSON.stringify(this.selectedDrinks));
     }
   }
+
 
 
 }
