@@ -221,31 +221,31 @@ export class FoodsComponent {
 
   ngOnInit(){
     this.foodArticle = this.foods.filter((e : any) =>e.type == "Accompagnements")[0].contents;
+
     let foodInStg = localStorage.getItem("selectedFoods");
-    console.log(foodInStg)
+    // console.log(foodInStg)
     if(foodInStg){
       let parsedItem = JSON.parse(foodInStg)
-      
+
       parsedItem.forEach((item: any) => {
         let gottenItem = item.images;
         let findGottenItem = gottenItem.split('/')[2]
       // console.log(findGottenItem);
-      
+
          this.foods.forEach((elm :any )=>{
             if(elm.type == findGottenItem){
-          // console.log(elm.contents)           
+          // console.log(elm.contents)
 
                elm.contents.forEach((cont : any)=>{
                 if(cont.nom == item.nom){
                   cont.selected = true;
                 };
-              }) 
+              })
             }
          })
       });
     }
   }
-
 
   SelectCategorie(event : any){
     let gottenArticle = event.target[event.target.selectedIndex].text;
@@ -253,19 +253,37 @@ export class FoodsComponent {
     // console.log(this.foodArticle);
   }
 
-
   selectedFood(data : any){
-    if(data.selected == false || data.selected == undefined){
+    if(!data.selected || data.selected == undefined){
+
+      if (this.selectedFoods == null) { this.selectedFoods = [] }
       data.selected = true;
       this.selectedFoods.push(data)
+
     }else{
       data.selected = false
-      this.selectedFoods.filter((element:any)=>{
-        element.nom !== data.nom
-      })
+      this.selectedFoods = this.selectedFoods.filter((element:any)=>element.nom !== data.nom)
     }
-    localStorage.setItem("selectedFoods",JSON.stringify(this.selectedFoods))
-    // console.log(data);
+    localStorage.setItem("selectedFoods", JSON.stringify(this.selectedFoods))
     this.foodItems.emit(data)
   }
+
+  updateItemStateByNom(nom: string): void {
+    let found = false;
+
+    this.foods.forEach((food: any) => {
+      if (found) return;
+
+      const itemToUpdate = food.contents.find((f: any) => f.nom === nom);
+      if (itemToUpdate) {
+        itemToUpdate.selected = false;
+        this.selectedFoods = this.selectedFoods.filter((selectedItem: any) => selectedItem.nom !== nom);
+        localStorage.setItem('selectedFoods', JSON.stringify(this.selectedFoods));
+        found = true;
+      }
+    });
+  }
+
+
+
 }
