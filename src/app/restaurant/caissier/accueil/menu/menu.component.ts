@@ -9,10 +9,10 @@ export class MenuComponent {
 
   menu: any = [
     {
+      'name': 'Menu 1',
       'plat': 'assets/Restaurant/Plats/yassa_poulet.jpeg',
       'drink': 'assets/Restaurant/Drinks/COCA COLA 33CL.png',
       // 'dessert': 'assets/Restaurant/Desserts/THIAKRY.jpeg',
-      'name': 'Menu 1',
       'price': 1500
     },
 
