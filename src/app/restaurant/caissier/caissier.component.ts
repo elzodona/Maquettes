@@ -118,7 +118,7 @@ export class CaissierComponent {
 
   }
 
-  addFoods(food :any){
+  addFoods(food : any){
     if(food.selected == true){
       this.accueilticketComponent.ajouterPlat(food.nom, food.prix)
 
