@@ -3,7 +3,7 @@
 <div class="rounded-lg  h-[68dvh] py-3">
 
   <ng-container *ngIf="nav=='menu'" >
-   <app-menu></app-menu>
+   <app-menu (chosenMenu)="addMenu($event)"></app-menu>
   </ng-container>
 
   <ng-container *ngIf="nav=='foods'" >

@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { DessertsComponent } from './accueil/desserts/desserts.component';
 import { DrinksComponent } from './accueil/drinks/drinks.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { MenuComponent } from './accueil/menu/menu.component';
 
 @Component({
   selector: 'app-caissier',
@@ -18,7 +19,7 @@ export class CaissierComponent {
 
   @ViewChild(AccueilticketComponent) accueilticketComponent!: AccueilticketComponent;
   @ViewChild(AccueilComponent) accueilComponent!: AccueilComponent;
-
+  @ViewChild(MenuComponent) menuComponent! : MenuComponent;
 
 
   constructor(private fb: FormBuilder){}
@@ -91,6 +92,16 @@ export class CaissierComponent {
     const drinksComponent = this.accueilComponent.drinksComponent;
     const dessertsComponent = this.accueilComponent.dessertsComponent;
     const foodsComponent = this.accueilComponent.foodsComponent;
+    const menuComponent = this.accueilComponent.menuComponent
+
+    if (drinksComponent && drinksComponent.drinks) {
+        drinksComponent.updateItemStateByNom(nom);
+        return;
+    }
+
+    if (dessertsComponent && dessertsComponent.desserts) {
+        dessertsComponent.updateItemStateByNom(nom);
+        return;
 
     if (drinksComponent && drinksComponent.drinks) {
       drinksComponent.updateItemStateByNom(nom);
@@ -105,7 +116,14 @@ export class CaissierComponent {
     if (foodsComponent && foodsComponent.foods) {
       foodsComponent.updateItemStateByNom(nom);
       return;
+
     }
+
+    
+    if (menuComponent && menuComponent.menu) {
+      menuComponent.updateItemStateByNom(nom);
+      return;
+  }
 
   }
 
@@ -119,6 +137,25 @@ export class CaissierComponent {
       let indexItem = plats.findIndex((plat : any) => plat.nom == food.nom)
       // console.log(indexItem);
       this.accueilticketComponent.supprimerPlat(indexItem)
+    }
+  }
+
+  addMenu(data : any){
+    if(data.selected == true){
+      this.accueilticketComponent.ajouterPlat(data.nom, data.prix)
+    }else{
+      // console.log(data)
+
+      let plats = this.accueilticketComponent.plats.value;
+      // console.log(plats);
+      
+      let indexItem = plats.findIndex((plat : any) =>
+        plat.nom == data.nom
+      )
+      // console.log(indexItem);
+      
+      this.accueilticketComponent.supprimerPlat(indexItem)
+      
     }
   }
 

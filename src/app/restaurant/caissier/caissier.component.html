@@ -47,7 +47,11 @@
 
           <!-- Accueil -->
           <ng-container *ngIf="navigation=='accueil'" >
-            <app-accueil (coms)="test2($event)" (dess)="addDesserts($event)"  (fds)="addFoods($event)"></app-accueil>
+            <app-accueil
+               (coms)="test2($event)" 
+               (dess)="addDesserts($event)" 
+               (fds)="addFoods($event)" 
+               (mn)="addMenu($event)"></app-accueil>
           </ng-container>
 
           <ng-container *ngIf="navigation=='commande'" >

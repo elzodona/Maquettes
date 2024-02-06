@@ -18,6 +18,9 @@ export class AccueilticketComponent {
   commandeForm!: FormGroup;
   selectedAction: string = 'Sur place';
   total: number = 0;
+  getMenu! : number ;
+  gottenMenu : any = [];
+  gotData : any = [];
 
   // @Input() coms: any;
   @Output() nom = new EventEmitter;
@@ -65,7 +68,7 @@ export class AccueilticketComponent {
       prix: prix
     });
     this.plats.push(platFormGroup);
-    this.total+=prix
+    this.total = +this.total + +prix
 
     const dataFromLocalStorage = JSON.parse(localStorage.getItem('plats')!) || [];
     const updatedData = [...dataFromLocalStorage, platFormGroup.value];
@@ -150,6 +153,35 @@ export class AccueilticketComponent {
     }
   }
 
+  
 
+
+  
+  // ------------ New Test ------------>
+  
+  // handleMenu(data : any, menuValue : number){
+  //   console.log(data);
+  //   this.getMenu = menuValue;
+  //   this.gotData.push(data);
+  //   this.gottenMenu = this.getMenuFormLocalStorage(this.gotData);
+  //   let totalMenu = 0
+  //   this.gottenMenu.forEach((menu: any) => {
+  //     totalMenu+= menu.price
+  //   });
+  //   this.total = totalMenu
+  //   console.log(this.gottenMenu);
+  // }
+
+  
+  //   removeMenu(id: number, arrayTarget: any[]) {
+  //     let newArray = arrayTarget.filter(item => item.id !== id);
+  //     this.gottenMenu = this.getMenuFormLocalStorage(newArray); 
+  // }
+  
+
+  // getMenuFormLocalStorage(gotData : any){
+  //   localStorage.setItem('gottenMenu',JSON.stringify(gotData));
+  //   return JSON.parse(localStorage.getItem('gottenMenu')!);
+  // }
 
 }
